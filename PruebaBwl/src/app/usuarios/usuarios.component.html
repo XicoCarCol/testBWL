@@ -1,0 +1,83 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-3">
+        <button matTooltip="Regresar" matTooltipPosition="left" mat-icon-button class="mr-16" [routerLink]="'/login'">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+      <div class="col-md-4">
+        <h1 class="header">CREAR CUENTA</h1>
+      </div>
+    </div>
+    <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+
+      <!-- CORREO -->
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="legacy">
+          <mat-label>Correo Electronico</mat-label>
+          <input autocomplete="off" formControlName="email" matInput placeholder="Enter email address" required />
+          <mat-error *ngIf="!loginForm.controls['email'].valid">
+            Correo es requerido
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div style="padding: 0%; margin: auto;" class="row">
+        <!-- CONTRASEÑA UNO-->
+        <div class="emailInput col-md-5 container">
+          <mat-form-field class="full-width" appearance="legacy">
+            <mat-label>Contraseña</mat-label>
+            <input autocomplete="off" formControlName="password" matInput [type]=" hide ? 'password' : 'text'"
+              required />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!loginForm.controls['email'].valid">
+              Contraseña es requerida
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <!-- CONTRASEÑA DOS-->
+        <div class="emailInput col-md-5 container">
+          <mat-form-field class="full-width" appearance="legacy">
+            <mat-label>Confirmar Contraseña</mat-label>
+            <input autocomplete="off" formControlName="passTwo" matInput [type]=" hide ? 'password' : 'text'"
+              required />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!loginForm.controls['email'].valid">
+              Contraseña es requerida
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div>
+        <!-- NOMBRE COMPLETO -->
+        <div class="row"></div>
+        <mat-form-field class="full-width" appearance="legacy">
+          <mat-label>Nombre Completo</mat-label>
+          <input autocomplete="off" maxlength="60" formControlName="nombre" matInput required />
+          <mat-error *ngIf="!loginForm.controls['password'].valid">
+            Nombre es requerido
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button [disabled]="!isFormValid" routerLink="/dashboard" (click)="onLogin()"
+        style="width: -webkit-fill-available;" mat-flat-button color="primary">Registrarme
+      </button>
+    </form>
+
+  </mat-card-content>
+</mat-card>
