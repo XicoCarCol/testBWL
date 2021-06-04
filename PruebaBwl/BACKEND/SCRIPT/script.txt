@@ -1,0 +1,1 @@
+Se tiene que correr los script para poder agregar la base de datos.
