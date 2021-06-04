@@ -1,1 +1,29 @@
-<p>page-usuarios works!</p>
+<mat-card-title>Lista de Usuarios del Sistema</mat-card-title>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="correo">
+    <th mat-header-cell *matHeaderCellDef>Correo Electronico</th>
+    <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="fechaR">
+    <th mat-header-cell *matHeaderCellDef>Fecha Registro</th>
+    <td mat-cell *matCellDef="let element"> {{element.fechaR}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="login">
+    <th mat-header-cell *matHeaderCellDef>Último Login</th>
+    <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+</table>

@@ -1,46 +1,87 @@
-<!-- <p hidden>
-  <mat-toolbar>
-    <span>My Application</span>
-  </mat-toolbar>
-</p>
-
-<p>
-  <mat-toolbar color="primary">
-    <button mat-flat-button color="primary" aria-label="Example icon-button with menu icon">
-       <mat-icon>menu</mat-icon>
-      <h1>Dashboard</h1>
-    </button>
-    <span>My App</span>
-    <span class="example-spacer">
-      <button routerLink="/pageUsuario" mat-flat-button color="primary" aria-label="Example icon-button with menu icon">
-         <mat-icon>menu</mat-icon
-        <h1>Usuarios</h1>
-      </button>
-    </span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
- -->
-
-<nav style="padding-left: 50px; padding-right: 5px;" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Dashboard</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <a class="navbar-brand"[routerLink]='["/pageUsuario"]'>Usuarios</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<!-- PRIMERA SECCION -->
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Clima</h2>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
   </div>
-    <mat-label class="btn btn-outline-success my-2 my-sm-0">{{title}}</mat-label>
-</nav>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">País seleccionado</h2>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Paises disponibles</h2>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<!-- SEGUNDA SECCION -->
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Tareas pendientes</h2>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Hora</h2>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<!-- TERCERA SECCION -->
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Tareas completadas</h2>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Zonas horarias disponibles</h2>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -16,6 +16,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PageUsuariosComponent } from './usuarios/page-usuarios/page-usuarios.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 
@@ -26,7 +29,8 @@ import { PageUsuariosComponent } from './usuarios/page-usuarios/page-usuarios.co
     LoginComponent,
     DashboardComponent,
     UsuariosComponent,
-    PageUsuariosComponent
+    PageUsuariosComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { PageUsuariosComponent } from './usuarios/page-usuarios/page-usuarios.co
     ReactiveFormsModule,
     MatButtonModule,
     MatTooltipModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

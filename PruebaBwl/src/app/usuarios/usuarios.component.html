@@ -47,12 +47,12 @@
         <div class="emailInput col-md-5 container">
           <mat-form-field class="full-width" appearance="legacy">
             <mat-label>Confirmar Contraseña</mat-label>
-            <input autocomplete="off" formControlName="passTwo" matInput [type]=" hide ? 'password' : 'text'"
+            <input autocomplete="off" formControlName="passTwo" matInput [type]=" hideTwo ? 'password' : 'text'"
               required />
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
-              [attr.aria-pressed]="hide">
+            <button mat-icon-button matSuffix (click)="hideTwo = !hideTwo" [attr.aria-label]="'Hide Password'"
+              [attr.aria-pressed]="hideTwo">
               <mat-icon>
-                {{hide ? 'visibility_off' : 'visibility'}}
+                {{hideTwo ? 'visibility_off' : 'visibility'}}
               </mat-icon>
             </button>
             <mat-error *ngIf="!loginForm.controls['email'].valid">
@@ -74,7 +74,7 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <button [disabled]="!isFormValid" routerLink="/dashboard" (click)="onLogin()"
+      <button [disabled]="!isFormValid" (click)="onLogin()"
         style="width: -webkit-fill-available;" mat-flat-button color="primary">Registrarme
       </button>
     </form>

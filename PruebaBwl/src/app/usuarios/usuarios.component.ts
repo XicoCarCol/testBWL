@@ -11,7 +11,9 @@ export class UsuariosComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
 
-  hide: boolean = true;
+  public hide: boolean = true;
+  public hideTwo: boolean = true;
+
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -29,7 +31,7 @@ export class UsuariosComponent implements OnInit {
     if (!this.loginForm.valid) {
       return;
     }
-    console.log(this.loginForm.value);
+        console.log(this.loginForm.value);
   }
 
   ngOnInit(): void {
