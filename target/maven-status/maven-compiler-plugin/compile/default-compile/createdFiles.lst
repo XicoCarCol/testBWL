@@ -1,1 +1,7 @@
+com\pruebabwl\controllers\show\UsuariosController.class
+com\pruebabwl\repositories\UsuarioRepository.class
 com\pruebabwl\PruebaBwlApplication.class
+com\pruebabwl\controllers\created\createdUserController.class
+com\pruebabwl\services\impl\UsuarioServiceImpl.class
+com\pruebabwl\services\UsuarioService.class
+com\pruebabwl\entities\Usuarios.class
