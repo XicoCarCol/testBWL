@@ -1,5 +1,13 @@
 /*SCRIPT PARA LA BASE DE DATOS*/
 
+Datos de DB:
+nombre: pruebabwl
+user: root
+pass: root
+direccion: localhost:3306
+
+Al igual nos entrega toda la información sobre el applications properties del backend.
+
 create database pruebaBwl; /*Crea base de datos*/
 
 use pruebaBwl; /*se ocupa la base dedatos*/
