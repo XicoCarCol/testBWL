@@ -18,6 +18,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { PageUsuariosComponent } from './usuarios/page-usuarios/page-usuarios.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -45,7 +47,8 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatTooltipModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

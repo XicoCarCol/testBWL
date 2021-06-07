@@ -15,13 +15,13 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="fechaR">
     <th mat-header-cell *matHeaderCellDef>Fecha Registro</th>
-    <td mat-cell *matCellDef="let element"> {{element.fechaR}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.fechaReg | date: 'dd/MM/yyyy hh:mm:ss a'}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="login">
     <th mat-header-cell *matHeaderCellDef>Último Login</th>
-    <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.ultimoLogin | date: 'dd/MM/yyyy hh:mm:ss a'}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>

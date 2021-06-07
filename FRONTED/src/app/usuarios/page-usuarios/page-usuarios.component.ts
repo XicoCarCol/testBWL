@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { UsuariosService } from 'src/app/services/usuarios.service';
+import { Usuario } from './../../model/usuario.model';
 
 @Component({
   selector: 'app-page-usuarios',
@@ -13,33 +15,26 @@ export class PageUsuariosComponent implements OnInit {
   // public dataSource!: MatTableDataSource<any>; // Datos para la tabla
  // Datos para la tabla
   public columns = ['nombre', 'correo', 'fechaR', 'login'];
-  dataSource = ELEMENT_DATA;
+  dataSource = [];
+
+  public lsUsuario: Usuario[] | any; //se le asigna la data
 
 
-
-
-  constructor() { }
+  constructor(
+    private svUser: UsuariosService
+  ) { }
 
   ngOnInit(): void {
-
+    this.lsUsuario =[]
+    this.prueba();
   }
 
-
+  public prueba(){
+    this.svUser.fnGetUser().subscribe((data) => {
+      this.lsUsuario = data;
+      this.dataSource = data;
+      console.log("DATOS DE LA API", this.lsUsuario);
+    });
+  }
 
 }
-
-export interface Elementos {
-  nombre: string;
-  correo: string;
-  fechaR: string;
-  login: string;
-}
-
-const ELEMENT_DATA: Elementos[] = [
-  {nombre: 'Alejandro', correo: 'Hydrogen', fechaR: 'FECHAS', login: 'H'},
-  {nombre: 'Alejandro', correo: 'Helium', fechaR: 'FECHAS', login: 'He'},
-  {nombre: 'Alejandro', correo: 'Lithium', fechaR: 'FECHAS', login: 'Li'},
-  {nombre: 'Alejandro', correo: 'Beryllium', fechaR: 'FECHAS', login: 'Be'},
-  {nombre: 'Alejandro', correo: 'Boron', fechaR: 'FECHAS', login: 'B'},
-  {nombre: 'Alejandro', correo: 'Carbon', fechaR: 'FECHAS', login: 'C'}
-];

@@ -9,7 +9,11 @@
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-
+<div class="col-md-3">
+  <button matTooltip="Regresar" matTooltipPosition="left" mat-icon-button class="mr-16" [routerLink]="'/login'">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>
 <div class="container m-5">
   <router-outlet></router-outlet>
 </div>
