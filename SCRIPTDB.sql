@@ -1,11 +1,10 @@
 /*SCRIPT PARA LA BASE DE DATOS*/
 
-create
-database pruebaBwl; /*Crea base de datos*/
-use
-pruebaBwl; /*se ocupa la base dedatos*/
+create database pruebaBwl; /*Crea base de datos*/
 
+use pruebaBwl; /*se ocupa la base dedatos*/
 
+/*Se crea la tabla*/
 create table usuarios
 (
     id_usuario   int          NOT NULL AUTO_INCREMENT,
