@@ -3,7 +3,7 @@
     <div class="header">
       <h1>BIENVENIDO</h1>
     </div>
-    <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+    <form [formGroup]="loginForm">
       <div class="emailInput">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Email</mat-label>
@@ -30,7 +30,8 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <button style="width: -webkit-fill-available;" routerLink="/navbar" mat-flat-button color="primary">Login</button>
+      <button (click)="onLogin()" style="width: -webkit-fill-available;"  mat-flat-button
+        color="primary">Login</button>
     </form>
 
     <div class="row">
@@ -39,7 +40,7 @@
       </div>
       <div style="margin: 9px;" class="col-md-4">
         <span>
-          <a class="text-link" class="aLink" routerLink="/registroUser">Registrarme</a>
+          <a class="text-link" class="aLink">Registrarme</a>
         </span>
 
       </div>

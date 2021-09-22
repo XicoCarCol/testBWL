@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
 
 
   onLogin() {
-    if (!this.loginForm.valid) {
-      return;
+    if (this.loginForm.dirty !== false) {
+      console.log(this.loginForm);
+
     }
-    console.log(this.loginForm.value);
   }
 
   ngOnInit(): void {
