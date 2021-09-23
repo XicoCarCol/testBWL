@@ -26,6 +26,15 @@ public class Usuarios {
     @Column
     private Date fecha_reg;
 
+    public Usuarios(String nombre, String email, String password) {
+        this.nombre = nombre;
+        this.correo = email;
+        this.passUno = password;
+    }
+
+    public Usuarios() {
+
+    }
 
     public Long getId() {
         return id;
