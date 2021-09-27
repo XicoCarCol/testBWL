@@ -4,17 +4,13 @@
     <a class="separate" (click)="onViewPage()" mat-button>Usuarios</a>
 
     <div style="text-align: end;" class="col">
+      <mat-label style="padding-right: 2rem;">{{title}}</mat-label>
 
-      <mat-label class="btn btn-outline-success">{{title}}</mat-label>
+      <mat-label matTooltip="Salir" matTooltipPosition="right" class="btn btn-outline-success" (click)="fnSalir()">Salir
+      </mat-label>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="col-md-3">
-  <button matTooltip="Regresar" matTooltipPosition="left" mat-icon-button class="mr-16" [routerLink]="'/login'">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-</div>
 <div class="container m-5">
   <router-outlet></router-outlet>
 </div>
-

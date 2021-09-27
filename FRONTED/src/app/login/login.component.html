@@ -30,17 +30,20 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <button (click)="onLogin()" style="width: -webkit-fill-available;"  mat-flat-button
-        color="primary">Login</button>
+      <button (click)="fnLogin()" style="width: -webkit-fill-available;" mat-flat-button color="primary">Login</button>
     </form>
 
     <div class="row">
-      <div style="margin: 9px;" class="col-md-4">
+      <div class="col-md-4 mt-4">
         <p>¿No tienes cuenta?</p>
       </div>
-      <div style="margin: 9px;" class="col-md-4">
+      <div class="col-md-4 mt-4">
         <span>
-          <a class="text-link" class="aLink">Registrarme</a>
+          <button (click)="registro()" class="text-link" style="width: -webkit-fill-available;" mat-button >
+            <a  >¡Registrate!</a>
+          </button>
+
+
         </span>
 
       </div>

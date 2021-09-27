@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: `http://localhost:8080/usuario-service`,//api que comunica con el backend
+  apiClima: `http://api.weatherapi.com/v1/current.json?key=`// api general de clima
 };
 
 /*

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { UsuariosService } from 'src/app/services/usuarios.service';
-import { Usuario } from './../../model/usuario.model';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
+import { Usuario } from '../../model/usuarios/usuario.model';
 
 @Component({
   selector: 'app-page-usuarios',
@@ -10,14 +12,11 @@ import { Usuario } from './../../model/usuario.model';
 })
 export class PageUsuariosComponent implements OnInit {
 
-  @ViewChild(MatTable) vcMtLenguas: MatTable<any> | undefined;
-
-  // public dataSource!: MatTableDataSource<any>; // Datos para la tabla
- // Datos para la tabla
+  public dataSource!: MatTableDataSource<Usuario>;
   public columns = ['nombre', 'correo', 'fechaR', 'login'];
-  dataSource = [];
-
   public lsUsuario: Usuario[] | any; //se le asigna la data
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
 
   constructor(
@@ -25,15 +24,16 @@ export class PageUsuariosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.lsUsuario =[]
+    this.lsUsuario = []
     this.prueba();
   }
 
-  public prueba(){
-    this.svUser.fnGetUser().subscribe((data) => {
+  public prueba() {
+    this.svUser.fnGetAllUser().subscribe((data) => {
       this.lsUsuario = data;
-      this.dataSource = data;
-      console.log("DATOS DE LA API", this.lsUsuario);
+      this.dataSource = new MatTableDataSource(this.lsUsuario);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 

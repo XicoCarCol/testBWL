@@ -40,8 +40,8 @@ mat-card {
   display: block;
 }
 
-.aLink{
-  float: right;
-  padding-right: 60px;
-  text-decoration: none;
+.text-link:hover{
+  background-color: gray;
+  width: 58%;
+
 }

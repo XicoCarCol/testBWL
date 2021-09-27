@@ -1,85 +1,136 @@
 <!-- PRIMERA SECCION -->
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-md-4">
     <div class="card">
       <div class="card-body">
         <h2 class="card-title">Clima</h2>
         <hr>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div>
+          <h1 style="font-size: 4rem; text-align: center;">
+            {{grados}}
+          </h1>
+        </div>
+        <div>
+          <img style="width: 3cm; text-align: center;" src={{iconoClima}}>
+          <h1 style="text-align: center;">
+            {{textoClima}}
+          </h1>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
+  <div class="col-md-4">
     <div class="card">
       <div class="card-body">
         <h2 class="card-title">País seleccionado</h2>
         <hr>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h1 style="font-size: 4rem; text-align: center;">
+          {{nombrePais}}
+        </h1>
+        <br />
+        <div class="alingText">
+          <img style="width: 7cm; text-align: center;" src={{bandera}}>
+
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Paises disponibles</h2>
-        <hr>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="col-md-4">
+    <form [formGroup]="formPaisDisp">
+      <div class="card" style="height: 13rem;">
+        <div class="card-body">
+          <h2 class="card-title">Paises disponibles</h2>
+          <hr>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Selecciona un país</mat-label>
+            <input type="text" matInput [matAutocomplete]="auto" formControlName="paisDisp">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="fnValSelect($event.option.id)">
+              <mat-option *ngFor="let option of lsPaises" [value]="option.pais" id="{{option.id}}">
+                <img class="example-option-img" aria-hidden [src]="option.img" height="25">
+                {{option.pais}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
       </div>
-    </div>
+    </form>
+
   </div>
 
 </div>
 
 <br>
+
 <!-- SEGUNDA SECCION -->
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card" style="height: 13rem;">
+      <div class="card-body">
+        <h2 class="card-title">Hora</h2>
+        <hr>
+
+        <div class="alingText">
+          <h1>{{localTime | date: 'dd/MM/yyyy HH:mm:ss'}}</h1>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="height: 13rem;">
+      <div class="card-body">
+        <h2 class="card-title">Zonas horarias disponibles</h2>
+        <hr>
+        <div class="stilos">
+          <a target="_blank" href={{rutaUno}}>{{sZonaUno}} </a>
+          <br />
+          <br />
+          <a target="_blank" href={{rutaDos}}>{{sZonaDos}}</a>
+          <br />
+          <br />
+          <a target="_blank" href={{rutaTres}}>{{sZonaTres}}</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<br>
+
+
+<!-- TERCERA SECCION -->
 <div class="row">
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
         <h2 class="card-title">Tareas pendientes</h2>
         <hr>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Hora</h2>
-        <hr>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <ul>
+          <li class="nav-item" *ngFor="let item of tPendientes">
+            <button mat-button>
+              {{item?.descripcion}}
+            </button>
+
+          </li>
+        </ul>
+
       </div>
     </div>
   </div>
 
-</div>
-
-<br>
-<!-- TERCERA SECCION -->
-<div class="row">
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
         <h2 class="card-title">Tareas completadas</h2>
         <hr>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Zonas horarias disponibles</h2>
-        <hr>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <ul>
+          <li class="nav-item" *ngFor="let item of tTerminadas">
+            <button mat-button >
+              {{item?.descripcion}}
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

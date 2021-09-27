@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
-import { UsuariosService } from 'src/app/services/usuarios.service';
-import { Usuario } from '../model/usuario.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SeguridadService } from './../services/login/seguridad.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-usuarios',
@@ -11,55 +12,49 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UsuariosComponent implements OnInit {
 
-  public formUsuario = new FormArray([]); //Arreglo para las filas de la tabla de lenguas
   public hide: boolean = true;
   public hideTwo: boolean = true;
+  formGroup!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private svUser: UsuariosService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private sSeguridad: SeguridadService,
+    private snackBar: MatSnackBar
   ) { }
-
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.fnForm();
   }
 
+  public fnForm() {
 
-  loginForm: FormGroup = this.fb.group({
-
-    id: [''],
-    correo: ['', [Validators.required, Validators.email]],
-    passUno: ['', [Validators.required, Validators.minLength(6)]],
-    passDos: ['', [Validators.required, Validators.minLength(6)]],
-    nombre: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(60)]],
-    ultimo_login: Date,
-    fecha_reg: Date
-  })
-
-
-  get isFormValid(): boolean {
-    return this.loginForm.valid;
+    this.formGroup = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      nombre: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required]],
+      passwordDos: ['', [Validators.required]]
+    })
   }
 
   public fnSaveUser() {
-    this.router.navigate(['/navbar'], { relativeTo: this.activatedRoute })
-    const moUser: Usuario[] = [];
-    const lUsuarios = this.formUsuario.controls.filter((obj) => obj.dirty || obj.value.bDirty)
-    if (lUsuarios.length > 0) {
-      lUsuarios.forEach((oElement) => {
-        const mUsuario: Usuario = this.formUsuario.getRawValue().find((o) => o.id === oElement.get("id")?.value);
-        moUser.push(mUsuario);
-      });
-      if (moUser.length > 0) {
-        /* Llamada al servicio post  */
-        /* this.svUser.fnSaveUser(moUser).subscribe(data => {
-
-        }) */
-      }
-    }
+    this.sSeguridad.fnRegistrarUser(this.formGroup.value).subscribe(data => {
+      this.fnCancelar();
+      this.snackBar.open(data.mensaje, 'x', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom'
+      })
+    }, error => {
+      this.snackBar.open(error.error.mensaje, 'x', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom'
+      })
+    });
   }
 
+  public fnCancelar() {
+    this.router.navigate(['login'])
+  }
 
 }
